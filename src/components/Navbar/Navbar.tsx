@@ -1,11 +1,25 @@
-import {useContext} from "react";
+import {useContext, useEffect} from "react";
 import {Link} from "react-router-dom";
 import {AuthContext} from "../../contexts/AuthContext";
+import { useSelector } from "react-redux";
+
 
 
 type Props = {};
 
 const Navbar = (props: Props) => {
+	const cartState = useSelector((state: any) => state.cart);
+	
+	/* useEffect(() => {
+		localStorage.setItem("token", "abc")
+		localStorage.setItem("token", "abc123")
+		let user = localStorage.getItem("user");
+		console.log(user);
+		localStorage.removeItem("token");
+		localStorage.clear();
+		
+	},[]) */
+	
 	const authContext: any = useContext(AuthContext);
 
 	
@@ -52,7 +66,7 @@ const Navbar = (props: Props) => {
 				
 							<li className="nav-item">
 								<Link className="nav-link" to={""}>
-									Sepetteki Ürün Toplamı :
+									Sepetteki Ürün Toplamı : {cartState.cartItems.length}
 								</Link>
 							</li>
 					</ul>
