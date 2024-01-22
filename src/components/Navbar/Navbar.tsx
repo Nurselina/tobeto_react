@@ -1,15 +1,14 @@
 import {useContext} from "react";
 import {Link} from "react-router-dom";
 import {AuthContext} from "../../contexts/AuthContext";
-import {useSelector} from "react-redux";
+
 
 type Props = {};
 
 const Navbar = (props: Props) => {
 	const authContext: any = useContext(AuthContext);
 
-	const cartState = useSelector((state: any) => state.cart);
-	console.log(cartState);
+	
 
 	return (
 		<nav
@@ -50,6 +49,12 @@ const Navbar = (props: Props) => {
 								</Link>
 							</li>
 						)}
+				
+							<li className="nav-item">
+								<Link className="nav-link" to={""}>
+									Sepetteki Ürün Toplamı :
+								</Link>
+							</li>
 					</ul>
 					<form className="d-flex" role="search">
 						<input
